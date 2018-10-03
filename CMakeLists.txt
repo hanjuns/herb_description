@@ -63,6 +63,8 @@ set(BH282_STANDALONE_SRDF "${ROBOTS_OUTPUT_DIR}/bh282.srdf")
 
 set(WEISS_STANDALONE_URDF_XACRO "${ROBOTS_SRC_DIR}/weiss_fmf_standalone.urdf.xacro")
 set(WEISS_FMF_STANDALONE_URDF "${ROBOTS_OUTPUT_DIR}/weiss_fmf.urdf")
+set(WEISS_STANDALONE_SRDF_XACRO "${ROBOTS_SRC_DIR}/weiss_fmf_standalone.srdf.xacro")
+set(WEISS_FMF_STANDALONE_SRDF "${ROBOTS_OUTPUT_DIR}/weiss_fmf.srdf")
 
 set(WAM_BH280_STANDALONE_URDF_XACRO "${ROBOTS_SRC_DIR}/wam_bh280_standalone.urdf.xacro")
 set(WAM_BH280_STANDALONE_URDF "${ROBOTS_OUTPUT_DIR}/wam_bh280.urdf")
@@ -78,6 +80,7 @@ build_xacro(${BH282_STANDALONE_SRDF_XACRO} ${BH282_STANDALONE_SRDF} "")
 build_xacro(${WAM_BH280_STANDALONE_URDF_XACRO} ${WAM_BH280_STANDALONE_URDF} "")
 build_xacro(${WAM_BH282_STANDALONE_URDF_XACRO} ${WAM_BH282_STANDALONE_URDF} "")
 build_xacro(${WEISS_STANDALONE_URDF_XACRO} ${WEISS_FMF_STANDALONE_URDF} "")
+build_xacro(${WEISS_STANDALONE_SRDF_XACRO} ${WEISS_FMF_STANDALONE_SRDF} "")
 
 # HERB model matrix
 #
@@ -102,9 +105,9 @@ set(HERB_URDF "${ROBOTS_OUTPUT_DIR}/herb.urdf")
 set(HERB_SRDF_XACRO "${ROBOTS_SRC_DIR}/herb.srdf.xacro")
 set(HERB_SRDF "${ROBOTS_OUTPUT_DIR}/herb.srdf")
 
-set(FULL_HERB_URDF_ARGS "left_bh280:=true" "right_bh282:=true")
+set(FULL_HERB_URDF_ARGS "left_weiss_fmf:=true" "right_weiss_fmf:=true")
 build_xacro(${HERB_URDF_XACRO} ${HERB_URDF} "${FULL_HERB_URDF_ARGS}")
-set(FULL_HERB_SRDF_ARGS "left_hand:=true" "right_hand:=true" "right_perception:=true")
+set(FULL_HERB_SRDF_ARGS "left_hand:=true" "right_hand:=true" "right_perception:=false")
 build_xacro(${HERB_SRDF_XACRO} ${HERB_SRDF} "${FULL_HERB_SRDF_ARGS}")
 
 list(APPEND CORE_DESCRIPTION_FILES
@@ -114,6 +117,7 @@ list(APPEND CORE_DESCRIPTION_FILES
   ${BH282_STANDALONE_URDF}
   ${BH282_STANDALONE_SRDF}
   ${WEISS_FMF_STANDALONE_URDF}
+  ${WEISS_FMF_STANDALONE_SRDF}
   ${WAM_BH280_STANDALONE_URDF}
   ${WAM_BH282_STANDALONE_URDF}
   ${HERB_URDF}

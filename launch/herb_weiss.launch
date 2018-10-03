@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="model" default="$(find herb_description)/robots/herb_weiss_fmf_left_weiss_fmf_right.urdf"/>
+  <arg name="model" default="$(find herb_description)/robots/herb_bh280_left_weiss_fmf_right.urdf"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find herb_description)/rviz/herb_weiss.rviz" />
 

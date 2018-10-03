@@ -1,0 +1,4 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="weiss_fmf">
+	<xacro:include filename="weiss_macro.srdf.xacro"/>
+	<xacro:weiss perception="false"/>
+</robot>
